@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#7656ed">
+<meta name="description" content="Bạn Là Ai? Khám phá tính cách thật của bạn qua bài trắc nghiệm vui.">
+<title>BẠN LÀ AI? – Khám phá chính mình</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#f8f5ff;color:#29223d}button{font:inherit;cursor:pointer;border:0}.wrap{max-width:680px;margin:auto;padding:22px 18px 55px}.top{display:flex;justify-content:space-between;align-items:center}.logo{font-weight:950;font-size:21px;letter-spacing:-1px;color:#7452e9}.tag{background:#eee8ff;padding:8px 13px;border-radius:30px;font-size:12px;color:#7452e9;font-weight:700}.hero{margin-top:28px;padding:32px 24px;border-radius:30px;background:linear-gradient(135deg,#7656ed,#a66af4 60%,#f38acb);color:white;position:relative;overflow:hidden}.hero:after{content:"✨";position:absolute;font-size:90px;right:18px;top:22px;opacity:.7}.eyebrow{font-size:12px;letter-spacing:2px;font-weight:800;opacity:.85}.hero h1{font-size:43px;line-height:1.08;margin:17px 0 12px;max-width:430px;letter-spacing:-2px}.hero p{line-height:1.6;max-width:390px;color:#f5edff}.primary{background:#fff;color:#714de4;padding:15px 22px;border-radius:15px;font-weight:850;margin-top:12px;box-shadow:0 5px 15px #39207825}.note{font-size:12px;opacity:.8;margin-top:15px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:17px 0}.feature{background:white;padding:15px 8px;border-radius:17px;text-align:center;font-size:12px;color:#716980}.feature b{display:block;font-size:21px;margin-bottom:5px}.panel{background:white;padding:22px;border-radius:24px;margin-top:17px;box-shadow:0 7px 28px #37245a0b}.hidden{display:none!important}.progressrow{display:flex;justify-content:space-between;font-size:13px;color:#817992;font-weight:700}.bar{height:8px;background:#eeeaf5;border-radius:10px;margin:12px 0 25px;overflow:hidden}.fill{height:100%;width:10%;background:linear-gradient(90deg,#7958ec,#f08acb);transition:.2s}.question{font-size:23px;line-height:1.35;font-weight:850;margin:12px 0 20px}.option{display:block;width:100%;text-align:left;padding:16px;margin:10px 0;border:2px solid #eeeaf5;border-radius:15px;background:white;color:#3d3550;font-weight:650}.option:active,.option.selected{border-color:#8663ed;background:#f3efff;color:#6845d7}.next{width:100%;background:#7656ed;color:white;padding:16px;border-radius:15px;font-weight:850;margin-top:15px}.next:disabled{opacity:.4;cursor:not-allowed}.result{text-align:center}.emoji{font-size:76px}.result h2{font-size:34px;margin:8px 0;color:#704fe0}.result p{line-height:1.7;color:#655d72}.resultbox{background:#f4efff;border-radius:18px;padding:18px;text-align:left;margin:18px 0}.secondary{background:#eee8ff;color:#704fe0;padding:14px 18px;border-radius:14px;font-weight:800;width:100%;margin-top:10px}.footer{text-align:center;color:#a29aaf;font-size:11px;margin-top:28px}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="logo">✦ BẠN LÀ AI?</div><div class="tag">TEST TÍNH CÁCH</div></header>
+<section id="home">
+<div class="hero"><div class="eyebrow">KHÁM PHÁ CHÍNH MÌNH</div><h1>Bạn thật sự là ai?</h1><p>Một bài trắc nghiệm nhỏ, một góc nhìn mới về con người bạn. Chọn theo cảm nhận đầu tiên nhé!</p><button class="primary" onclick="start()">Khám phá ngay ✨ →</button><div class="note">10 câu hỏi · Khoảng 2 phút · Miễn phí</div></div>
+<div class="features"><div class="feature"><b>🎯</b>10 câu hỏi</div><div class="feature"><b>🌈</b>5 kiểu tính cách</div><div class="feature"><b>📲</b>Chia sẻ kết quả</div></div>
+<div class="panel"><b>💜 Một chút lưu ý</b><p style="color:#817992;line-height:1.6;font-size:14px">Đây là bài trắc nghiệm giải trí và tự khám phá, không phải đánh giá tâm lý hay chẩn đoán khoa học. Không có đáp án đúng hoặc sai!</p></div>
+</section>
+<section id="quiz" class="panel hidden">
+<div class="progressrow"><span id="count">CÂU 1 / 10</span><span id="percent">10%</span></div><div class="bar"><div class="fill" id="fill"></div></div>
+<div class="question" id="question"></div><div id="options"></div><button class="next" id="next" disabled onclick="advance()">Tiếp tục →</button>
+</section>
+<section id="result" class="panel result hidden">
+<div class="tag">KẾT QUẢ CỦA BẠN</div><div class="emoji" id="emoji"></div><h2 id="title"></h2><p id="desc"></p>
+<div class="resultbox"><b>✨ Điểm nổi bật</b><p id="detail"></p><b>💡 Một lời nhắn dành cho bạn</b><p id="advice"></p></div>
+<button class="next" onclick="share()">📲 Chia sẻ kết quả</button><button class="secondary" onclick="restart()">Làm lại bài test ↻</button>
+</section>
+<div class="footer">BẠN LÀ AI? · Một chút vui, thêm chút hiểu mình 💜<br>Trắc nghiệm giải trí, không thay thế đánh giá chuyên môn.</div>
+</main>
+<script>
+const qs=[
+["Khi bước vào một môi trường mới, bạn thường…",["Chủ động bắt chuyện với mọi người","Quan sát trước rồi mới hòa nhập","Tìm một người có cùng sở thích","Thoải mái làm điều mình muốn"]],
+["Cuối tuần lý tưởng của bạn là…",["Đi chơi, gặp gỡ bạn bè","Ở nhà tận hưởng sự yên bình","Thử một điều mới mẻ","Làm điều gì đó có ích cho bản thân"]],
+["Khi gặp vấn đề khó, bạn sẽ…",["Hỏi ý kiến mọi người","Bình tĩnh phân tích từng bước","Nghĩ ra một cách giải quyết khác biệt","Quyết đoán hành động"]],
+["Bạn bè thường tìm đến bạn khi họ cần…",["Không khí vui vẻ","Một người biết lắng nghe","Ý tưởng sáng tạo","Lời khuyên thẳng thắn"]],
+["Điều khiến bạn tự hào nhất là…",["Khả năng kết nối mọi người","Sự tinh tế và thấu hiểu","Trí tưởng tượng phong phú","Ý chí và sự kiên trì"]],
+["Nếu được chọn một chuyến đi, bạn thích…",["Du lịch cùng hội bạn","Một nơi yên tĩnh, gần thiên nhiên","Một thành phố chưa từng đến","Một chuyến đi thử thách bản thân"]],
+["Khi làm việc nhóm, bạn thường…",["Khuấy động tinh thần cả nhóm","Quan tâm để mọi người thoải mái","Đưa ra ý tưởng mới","Đứng ra tổ chức và thực hiện"]],
+["Điều bạn không thích nhất là…",["Cảm giác bị bỏ rơi","Sự ồn ào, căng thẳng","Cuộc sống nhàm chán","Thiếu mục tiêu rõ ràng"]],
+["Khi có cơ hội mới, bạn sẽ…",["Rủ người khác cùng tham gia","Cân nhắc thật kỹ","Hào hứng khám phá","Lập kế hoạch để chinh phục"]],
+["Một câu mô tả đúng về bạn nhất là…",["Tôi mang năng lượng đến mọi nơi","Tôi sâu sắc hơn vẻ ngoài","Tôi luôn có thế giới riêng","Tôi sinh ra để tiến về phía trước"]]
+];
+const types=[
+["🌞","Người Truyền Năng Lượng","Bạn cởi mở, tích cực và có khả năng làm bầu không khí trở nên vui vẻ. Bạn thích kết nối và thường đem đến cảm giác gần gũi cho người khác.","Sự nhiệt tình, khả năng giao tiếp và tinh thần lạc quan.","Đừng quên dành thời gian chăm sóc năng lượng của chính mình."],
+["🌿","Người Chữa Lành","Bạn tinh tế, biết lắng nghe và thường để ý đến cảm xúc của người xung quanh. Sự bình yên và chân thành là điều bạn trân trọng.","Sự đồng cảm, kiên nhẫn và khả năng quan sát.","Bạn cũng xứng đáng được quan tâm và thấu hiểu như cách bạn quan tâm người khác."],
+["🎨","Kẻ Mộng Mơ Sáng Tạo","Bạn thích khám phá, có nhiều ý tưởng và không muốn cuộc sống bị đóng khung. Bạn nhìn thế giới theo cách riêng.","Trí tưởng tượng, sự tò mò và góc nhìn độc đáo.","Đừng ngại biến một ý tưởng nhỏ thành hành động thực tế."],
+["🚀","Người Chinh Phục","Bạn thích mục tiêu rõ ràng, có tinh thần chủ động và không dễ bỏ cuộc. Bạn muốn thấy bản thân tiến bộ từng ngày.","Sự quyết đoán, tinh thần trách nhiệm và tính kiên trì.","Thành công không chỉ là đi nhanh, mà còn là biết tận hưởng hành trình."]
+];
+let idx=0,answers=[],lastType=0;
+function start(){idx=0;answers=[];document.getElementById("home").classList.add("hidden");document.getElementById("result").classList.add("hidden");document.getElementById("quiz").classList.remove("hidden");show()}
+function show(){let q=qs[idx];document.getElementById("count").textContent="CÂU "+(idx+1)+" / 10";document.getElementById("percent").textContent=((idx+1)*10)+"%";document.getElementById("fill").style.width=((idx+1)*10)+"%";document.getElementById("question").textContent=q[0];let box=document.getElementById("options");box.innerHTML="";q[1].forEach((v,i)=>{let b=document.createElement("button");b.className="option"+(answers[idx]===i?" selected":"");b.textContent=["A. ","B. ","C. ","D. "][i]+v;b.onclick=()=>{answers[idx]=i;box.querySelectorAll("button").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");document.getElementById("next").disabled=false};box.appendChild(b)});document.getElementById("next").textContent=idx===9?"Xem kết quả ✨":"Tiếp tục →";document.getElementById("next").disabled=answers[idx]===undefined}
+function advance(){if(answers[idx]===undefined)return;if(idx<9){idx++;show()}else finish()}
+function finish(){let scores=[0,0,0,0];answers.forEach(a=>scores[a]++);lastType=scores.indexOf(Math.max(...scores));let t=types[lastType];document.getElementById("quiz").classList.add("hidden");document.getElementById("result").classList.remove("hidden");document.getElementById("emoji").textContent=t[0];document.getElementById("title").textContent=t[1];document.getElementById("desc").textContent=t[2];document.getElementById("detail").textContent=t[3];document.getElementById("advice").textContent=t[4];}
+async function share(){let t=types[lastType],msg="Mình là "+t[1]+" "+t[0]+"! Bạn là ai? Thử khám phá tính cách của bạn tại "+location.href;try{if(navigator.share)await navigator.share({title:"Bạn Là Ai?",text:msg,url:location.href});else{await navigator.clipboard.writeText(msg);alert("Đã sao chép kết quả. Hãy dán để chia sẻ nhé!")}}catch(e){}}
+function restart(){document.getElementById("result").classList.add("hidden");document.getElementById("home").classList.remove("hidden")}
+</script>
+</body>
+</html>
